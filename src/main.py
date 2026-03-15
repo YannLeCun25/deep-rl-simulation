@@ -1,12 +1,11 @@
-import logging
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from environment import CustomAIEnv
 
 def main():
-    logger.info("Initializing Deep RL Simulation...")
-    # Production-grade AI logic goes here
-    print("System Running.")
+    env = CustomAIEnv()
+    state = env.reset()
+    print(f"Initial AI State: {state}")
+    next_state, reward, done, _ = env.step(action=1)
+    print(f"Action taken. Reward received: {reward}")
 
 if __name__ == "__main__":
     main()
